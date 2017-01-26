@@ -3,6 +3,8 @@ gitbucket-groupsmenu-plugin
 
 The plugin shows groups dropdown in header menu for [GitBucket](https://github.com/gitbucket/gitbucket).
 
+![screenshot](./screenshot.png)
+
 Version
 ---
 
@@ -13,7 +15,7 @@ Plugin version|GitBucket version
 Download
 ---
 
-You can download a jar file from the [Release]().
+You can download a jar file from the [Release](https://github.com/tomoki1207/gitbucket-groupsmenu-plugin/releases).
 
 Installation
 ---
