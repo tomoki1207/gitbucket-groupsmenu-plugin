@@ -3,6 +3,8 @@ gitbucket-groupsmenu-plugin
 
 The plugin shows groups dropdown in header menu for [GitBucket](https://github.com/gitbucket/gitbucket).
 
+![screenshot](./screenshot.png)
+
 Version
 ---
 
