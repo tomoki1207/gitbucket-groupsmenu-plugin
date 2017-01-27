@@ -13,7 +13,7 @@ class Plugin extends gitbucket.core.plugin.Plugin {
   override val pluginId: String = "groupsmenu"
   override val pluginName: String = "Groups in global menu Plugin"
   override val description: String = "Show groups link in global menu bar"
-  override val versions: List[Version] = List(new Version("1.0.0"))
+  override val versions: List[Version] = List(new Version("1.0.0"), new Version("1.0.1"))
 
   override val controllers = Seq(
     "/*" -> new GroupsMenuController()
@@ -28,12 +28,17 @@ class Plugin extends gitbucket.core.plugin.Plugin {
   override def javaScripts(registry: PluginRegistry, context: ServletContext, settings: SystemSettings): Seq[(String, String)] = {
     val path = settings.baseUrl.getOrElse(context.getContextPath)
     Seq(
-      ".*" -> s"""
+      ".*/(?!signin)[^/]*" -> s"""
        |</script>
        |<script>var basePath = "$path";</script>
        |<script src="$path/plugin-assets/groupsmenu/main.js"></script>
        |<script>
-       """.stripMargin
+       """.stripMargin,
+      ".*/signin[^/]*" -> s"""
+       |$$(document).ready(function () {
+       |  $$('ul.navbar-nav a:contains("Groups")').closest('li').remove();
+       |});
+        """.stripMargin
     )
   }
 }
