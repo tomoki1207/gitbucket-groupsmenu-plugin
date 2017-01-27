@@ -9,7 +9,7 @@ $(document).ready(function () {
       var $ul = $('<ul class="dropdown-menu">');
       for (var k in json) {
         var name = json[k];
-        $ul.append($('<li>').append($('<a href="' + name + '">' + name + '</a>')));
+        $ul.append($('<li>').append($('<a href="' + basePath + '/' + name + '">' + name + '</a>')));
       }
       $li.addClass('dropdown');
       $groupBtn.append('<span class="caret"></span>')
